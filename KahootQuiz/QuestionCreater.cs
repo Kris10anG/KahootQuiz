@@ -21,7 +21,32 @@ namespace KahootQuiz
                     new Answer("skrue", 3, false),
                     new Answer("pizza", 4, false),
 
-                })
+                }),
+                new Question("Hva er etternavnet til Obama?", new List<Answer>
+                {
+                    new Answer("Trump", 1, false),
+                    new Answer("Stoltenberg", 2, false),
+                    new Answer("Solberg", 3, false),
+                    new Answer("Obama", 4, true),
+
+                }),
+                new Question("Hva står G-en i GET for?", new List<Answer>
+                {
+                    new Answer("Gucci", 1, false),
+                    new Answer("Gant", 2, false),
+                    new Answer("Geir", 3, true),
+                    new Answer("Galdhøpiggen", 4, false),
+
+                }),
+                new Question("fullfør dette ordtaket: Det finnes ikke dårlig vær, bare dårlig...", new List<Answer>
+                {
+                    new Answer("Fjær", 1, false),
+                    new Answer("Klær", 2, true),
+                    new Answer("Militær", 3, false),
+                    new Answer("Tacosaus", 4, false),
+
+                }),
+
             };
         }
         public Question CreateQuestion()
@@ -30,7 +55,8 @@ namespace KahootQuiz
             var question = Console.ReadLine();
             var answers = CreateAnswer();
             var questionToAdd = new Question(question, answers);
-            Questions.Add(questionToAdd);
+            Questions.Insert(0, questionToAdd);
+            //Questions.Add(questionToAdd);
             return questionToAdd;
         }
         public List<Answer> CreateAnswer()
@@ -47,6 +73,7 @@ namespace KahootQuiz
                 bool rightAnswerBool = rightAnswer == "ja";
                 var createAnswer = new Answer(answerAlternativ, id, rightAnswerBool);
                 answers.Add(createAnswer);
+
             }
 
             return answers;
